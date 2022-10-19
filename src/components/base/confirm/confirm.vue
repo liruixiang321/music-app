@@ -74,7 +74,8 @@
     top: 0;
     bottom: 0;
     z-index: 998;
-    background-color: $color-background-d;
+    // background-color: $color-background-d;
+    @include bg-color(color-background-d);
     &.confirm-fade-enter-active {
       animation: confirm-fadein .3s;
       .confirm-content {
@@ -96,13 +97,15 @@
       .confirm-content {
         width: 270px;
         border-radius: 13px;
-        background: $color-highlight-background;
+        // background: $color-highlight-background;
+        @include bg-color(color-highlight-background);
         .text {
           padding: 19px 15px;
           line-height: 22px;
           text-align: center;
           font-size: $font-size-large;
-          color: $color-text-l;
+          // color: $color-text-l;
+          @include text-color(color-text-l);
         }
         .operate {
           display: flex;
@@ -114,10 +117,12 @@
             line-height: 22px;
             padding: 10px 0;
             border-top: 1px solid $color-background-d;
-            color: $color-text-l;
+            // color: $color-text-l;
+            @include text-color(color-text-l);
             &.left {
               border-right: 1px solid $color-background-d;
-              color: $color-text;
+              // color: $color-text;
+              @include text-color(color-text);
             }
           }
         }

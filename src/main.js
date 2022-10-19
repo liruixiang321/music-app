@@ -1,4 +1,5 @@
 import { createApp } from 'vue'
+
 import App from './App.vue'
 import router from './router'
 import store from './store'
@@ -11,6 +12,7 @@ import { processSongs } from '@/service/song'
 
 // 引入全局样式文件
 import '@/assets/scss/index.scss'
+
 
 const favoriteSongs = load(FAVORITE_KEY)
 if (favoriteSongs.length > 0) {

@@ -97,6 +97,7 @@ function mergeSinger(singer) {
   if (!singer) {
     return ''
   }
+  // console.log(singer);
   singer.forEach((s) => {
     ret.push(s.name)
   })
@@ -436,7 +437,6 @@ function registerSongsUrl(app) {
 function registerLyric(app) {
   app.get('/api/getLyric', (req, res) => {
     const url = 'https://c.y.qq.com/lyric/fcgi-bin/fcg_query_lyric_new.fcg'
-
     get(url, {
       '-': 'MusicJsonCallback_lrc',
       pcachetime: +new Date(),
@@ -609,9 +609,9 @@ function registerTopDetail(app) {
 // 注册热门搜索接口
 function registerHotKeys(app) {
   app.get('/api/getHotKeys', (req, res) => {
-    // const url = 'https://c.y.qq.com/splcloud/fcgi-bin/gethotkey.fcg'
+    const url = 'https://c.y.qq.com/splcloud/fcgi-bin/gethotkey.fcg'
 
-    const url = 'https://interface.music.163.com/weapi/search/hot'
+    // const url = 'https://interface.music.163.com/weapi/search/hot'
     get(url, {
       g_tk_new_20200303: token
     }).then((response) => {
@@ -638,66 +638,86 @@ function registerHotKeys(app) {
 // 注册搜索查询接口
 function registerSearch(app) {
   app.get('/api/search', (req, res) => {
-    const url = 'https://c.y.qq.com/soso/fcgi-bin/search_for_qq_cp'
-
+    // const url = 'https://c.y.qq.com/soso/fcgi-bin/search_for_qq_cp'
+    const url = 'https://c.y.qq.com/splcloud/fcgi-bin/smartbox_new.fcg'
     const { query, page, showSinger } = req.query
+
+    // const data = {
+    //   _: getRandomVal(),
+    //   g_tk_new_20200303: token,
+    //   w: query,
+    //   p: page,
+    //   perpage: 20,
+    //   n: 20,
+    //   zhidaqu: 1,
+    //   catZhida: showSinger === 'true' ? 1 : 0,
+    //   t: 0,
+    //   flag: 1,
+    //   ie: 'utf-8',
+    //   sem: 1,
+    //   aggr: 0,
+    //   remoteplace: 'txt.mqq.all',
+    //   uin: '0',
+    //   needNewCode: 1,
+    //   platform: 'h5',
+    //   format: 'json'
+    // }
 
     const data = {
       _: getRandomVal(),
-      g_tk_new_20200303: token,
-      w: query,
-      p: page,
-      perpage: 20,
-      n: 20,
-      zhidaqu: 1,
-      catZhida: showSinger === 'true' ? 1 : 0,
-      t: 0,
-      flag: 1,
-      ie: 'utf-8',
-      sem: 1,
-      aggr: 0,
-      remoteplace: 'txt.mqq.all',
-      uin: '0',
+      cv: 4747474,
+      ct: 24,
+      format: 'json',
+      inCharset: 'utf-8',
+      outCharset: 'utf-8',
+      notice: 0,
+      platform: 'yqq.json',
       needNewCode: 1,
-      platform: 'h5',
-      format: 'json'
-    }
+      uin: 0,
+      g_tk_new_20200303: token,
+      g_tk: 5381,
+      hostUin: 0,
+      is_xml: 0,
+      key: query,
+      }
 
     get(url, data).then((response) => {
       const data = response.data
+      console.log(data);
       if (data.code === ERR_OK) {
         const songList = []
         const songData = data.data.song
-        const list = songData.list
-
+        const list = songData.itemlist
+        
         list.forEach((item) => {
           const info = item
-          if (info.pay.payplay !== 0 || !info.interval) {
-            // 过滤付费歌曲
-            return
-          }
-
+          // if (info.pay.payplay !== 0 || !info.interval) {
+          //   // 过滤付费歌曲
+          //   return
+          // }
+          console.log(item)
           const song = {
-            id: info.songid,
-            mid: info.songmid,
-            name: info.songname,
-            singer: mergeSinger(info.singer),
+            id: info.id,
+            mid: info.mid,
+            name: info.name,
+            singer: info.singer,
             url: '',
             duration: info.interval,
-            pic: info.albummid ? `https://y.gtimg.cn/music/photo_new/T002R800x800M000${info.albummid}.jpg?max_age=2592000` : fallbackPicUrl,
+            pic: info.mid ? `https://y.gtimg.cn/music/photo_new/T001R150x150M000${info.mid}.jpg?max_age=2592000` : fallbackPicUrl,
             album: info.albumname
           }
           songList.push(song)
         })
 
         let singer
-        const zhida = data.data.zhida
+        const zhida = data.data.singer
         if (zhida && zhida.type === 2) {
+          console.log(zhida.itemlist[0])
           singer = {
-            id: zhida.singerid,
-            mid: zhida.singermid,
-            name: zhida.singername,
-            pic: `https://y.gtimg.cn/music/photo_new/T001R800x800M000${zhida.singermid}.jpg?max_age=2592000`
+            id: zhida.itemlist[0].id,
+            mid: zhida.itemlist[0].mid,
+            name: zhida.itemlist[0].name,
+            pic: zhida.itemlist[0].pic
           }
         }
 

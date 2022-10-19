@@ -54,12 +54,14 @@
 
       .tab-link {
         padding-bottom: 5px;
-        color: $color-text-l;
+        // color: $color-text-l;
+        @include text-color($color-text-l);
       }
 
       &.router-link-active {
         .tab-link {
-          color: $color-theme;
+          // color: $color-theme;
+          @include text-color($color-theme);
           border-bottom: 2px solid $color-theme;
         }
       }

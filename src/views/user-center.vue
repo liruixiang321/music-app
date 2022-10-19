@@ -101,7 +101,8 @@
     bottom: 0;
     z-index: 100;
     width: 100%;
-    background: $color-background;
+    // background: $color-background;
+    @include bg-color(color-background);
     .back {
       position: absolute;
       top: 0;
@@ -111,7 +112,8 @@
         display: block;
         padding: 10px;
         font-size: $font-size-large-x;
-        color: $color-theme;
+        // color: $color-theme;
+        @include text-color(color-theme);
       }
     }
     .switches-wrapper {
@@ -123,8 +125,9 @@
       padding: 7px 0;
       margin: 0 auto;
       text-align: center;
-      border: 1px solid $color-text-l;
-      color: $color-text-l;
+      border: 1px solid $color-theme;
+      // color: $color-text-l;
+      @include text-color(color-text-l);
       border-radius: 100px;
       font-size: 0;
       .icon-play {

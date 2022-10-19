@@ -128,7 +128,8 @@
     z-index: 180;
     width: 100%;
     height: 60px;
-    background: $color-highlight-background;
+    // background: $color-highlight-background;
+    @include bg-color(color-highlight-background);
     .cd-wrapper {
       flex: 0 0 40px;
       width: 40px;
@@ -168,12 +169,14 @@
             margin-bottom: 2px;
             @include no-wrap();
             font-size: $font-size-medium;
-            color: $color-text;
+            // color: $color-text;
+            @include text-color(color-text);
           }
           .desc {
             @include no-wrap();
             font-size: $font-size-small;
-            color: $color-text-d;
+            // color: $color-text-d;
+            @include text-color(color-text-d);
           }
         }
       }

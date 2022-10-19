@@ -101,7 +101,8 @@
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background: $color-background;
+    //background: $color-background;
+    @include bg-color(color-background);
     .group {
       padding-bottom: 30px;
       .title {
@@ -109,8 +110,10 @@
         line-height: 30px;
         padding-left: 20px;
         font-size: $font-size-small;
-        color: $color-text-l;
-        background: $color-highlight-background;
+        //color: $color-text-l;
+        @include text-color(color-text-l);
+        //background: $color-highlight-background;
+        @include bg-color(color-highlight-background);
       }
       .item {
         display: flex;
@@ -123,7 +126,8 @@
         }
         .name {
           margin-left: 20px;
-          color: $color-text-l;
+          //color: $color-text-l;
+          @include text-color(color-text-l);
           font-size: $font-size-medium;
         }
       }
@@ -138,8 +142,10 @@
         line-height: 30px;
         padding-left: 20px;
         font-size: $font-size-small;
-        color: $color-text-l;
-        background: $color-highlight-background;
+        //color: $color-text-l;
+        @include text-color(color-text-l);
+       //background: $color-highlight-background;
+       @include bg-color(color-highlight-background);
       }
     }
     .shortcut {
@@ -151,15 +157,18 @@
       padding: 20px 0;
       border-radius: 10px;
       text-align: center;
-      background: $color-background-d;
+      //background: $color-background-d;
+      @include bg-color(color-background-d);
       font-family: Helvetica;
       .item {
         padding: 3px;
         line-height: 1;
-        color: $color-text-l;
+       // color: $color-text-l;
+       @include text-color(color-text-l);
         font-size: $font-size-small;
         &.current {
-          color: $color-theme
+          //color: $color-theme
+          @include text-color(color-theme);
         }
       }
     }

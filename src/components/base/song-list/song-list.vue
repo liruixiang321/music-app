@@ -92,12 +92,14 @@
         overflow: hidden;
         .name {
           @include no-wrap();
-          color: $color-text
+          // color: $color-text
+          @include text-color(color-text);
         }
         .desc {
           @include no-wrap();
           margin-top: 4px;
-          color: $color-text-d;
+          // color: $color-text-d;
+          @include text-color(color-text-d);
         }
       }
     }

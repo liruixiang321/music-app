@@ -223,7 +223,8 @@
     top: 0;
     bottom: 0;
     z-index: 200;
-    background-color: $color-background-d;
+    // background-color: $color-background-d;
+    @include bg-color($color-background-d);
     &.list-fade-enter-active, &.list-fade-leave-active {
       transition: opacity .3s;
       .list-wrapper {
@@ -242,7 +243,8 @@
       bottom: 0;
       z-index: 210;
       width: 100%;
-      background-color: $color-highlight-background;
+      // background-color: $color-highlight-background;
+      @include bg-color(color-highlight-background);
       .list-header {
         position: relative;
         padding: 20px 30px 10px 20px;
@@ -257,13 +259,15 @@
           .text {
             flex: 1;
             font-size: $font-size-medium;
-            color: $color-text-l;
+            // color: $color-text-l;
+            @include text-color(color-text-l);
           }
           .clear {
             @include extend-click();
             .icon-clear {
               font-size: $font-size-medium;
-              color: $color-text-d;
+              // color: $color-text-d;
+              @include text-color($color-text-d)
             }
           }
         }
@@ -281,13 +285,15 @@
             flex: 0 0 20px;
             width: 20px;
             font-size: $font-size-small;
-            color: $color-theme-d;
+            // color: $color-theme-d;
+            @include text-color(color-theme-d);
           }
           .text {
             flex: 1;
             @include no-wrap();
             font-size: $font-size-medium;
-            color: $color-text-d;
+            // color: $color-text-d;
+            @include text-color(color-text-d);
           }
           .favorite {
             @include extend-click();
@@ -303,7 +309,8 @@
             font-size: $font-size-small;
             color: $color-theme;
             &.disable {
-              color: $color-theme-d;
+              // color: $color-theme-d;
+              @include text-color(color-theme-d);
             }
           }
         }
@@ -317,7 +324,8 @@
           padding: 8px 16px;
           border: 1px solid $color-text-l;
           border-radius: 100px;
-          color: $color-text-l;
+          // color: $color-text-l;
+          @include text-color(color-text-l);
           .icon-add {
             margin-right: 5px;
             font-size: $font-size-small-s;
@@ -330,9 +338,11 @@
       .list-footer {
         text-align: center;
         line-height: 50px;
-        background: $color-background;
+        // background: $color-background;
+        @include bg-color(color-background);
         font-size: $font-size-medium-x;
-        color: $color-text-l;
+        // color: $color-text-l;
+        @include text-color(color-text-l);
       }
     }
   }

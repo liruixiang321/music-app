@@ -59,12 +59,17 @@
       onTouchStart(e) {
         this.touch.x1 = e.touches[0].pageX
         this.touch.beginWidth = this.$refs.progress.clientWidth
+        // 拿到进度条的宽度
       },
       onTouchMove(e) {
         const delta = e.touches[0].pageX - this.touch.x1
+        // 找到移动的距离
         const tempWidth = this.touch.beginWidth + delta
+        // 计算出移动后进度条的长度
         const barWidth = this.$el.clientWidth - progressBtnWidth
+
         const progress = Math.min(1, Math.max(tempWidth / barWidth, 0))
+        // 算出进度条移动后的进度
         this.offset = barWidth * progress
         this.$emit('progress-changing', progress)
       },

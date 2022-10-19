@@ -92,6 +92,7 @@
     top: 88px;
     bottom: 0;
     overflow: scroll;
+    @include bg-color(color-background);
     .recommend-content {
       height: 100%;
       overflow: hidden;
@@ -139,10 +140,12 @@
           }
           .name {
             margin-bottom: 10px;
-            color: $color-text;
+            //color: $color-text;
+            @include text-color(color-text);
           }
           .title {
-            color: $color-text-d;
+            //color: $color-text-d;
+            @include text-color(color-text-d);
           }
         }
       }

@@ -11,6 +11,48 @@ $color-text-d: rgba(255, 255, 255, 0.3);
 $color-text-l: rgba(255, 255, 255, 0.5);
 $color-text-ll: rgba(255, 255, 255, 0.8);
 
+
+
+// [data-theme="dark"] body{
+//     $color-background: #fff;
+//     $color-text: #3c3c3c;
+//     $color-text-d: #757575;
+//     $color-text-l: #222;
+//     $color-theme:#222
+//   }
+
+// variable.scss  
+// 浅色
+$colors-light: (
+  color-background: #fff,
+  color-background-d: rgba(242, 212, 212, 0.3),
+  color-highlight-background: rgb(231, 227, 227),
+  color-dialog-background: #666,
+  color-theme: #020202,
+  color-theme-d: rgba(175, 163, 128, 0.5),
+  color-sub-theme: #d93f30,
+  color-text: rgb(2, 2, 2),
+  color-text-d: rgba(30, 20, 20, 0.3),
+  color-text-l: rgba(36, 31, 31, 0.5),
+  color-text-ll: rgba(67, 59, 59, 0.8),
+);
+
+// 深色
+$colors-dark:(
+  color-background: rgb(6, 6, 6),
+  color-background-d: rgba(0, 0, 0, 0.3),
+  color-highlight-background: #333,
+  color-dialog-background: #666,
+  color-theme: #ffcd32,
+  color-theme-d: rgba(255, 205, 49, 0.5),
+  color-sub-theme: #d93f30,
+  color-text: #fff,
+  color-text-d: rgba(255, 255, 255, 0.565),
+  color-text-l: rgba(255, 255, 255, 0.5),
+  color-text-ll: rgba(255, 255, 255, 0.8),
+);
+
+
 // 字体定义规范
 $font-size-small-s: 10px;
 $font-size-small: 12px;

@@ -56,27 +56,33 @@
     width: 100%;
     padding: 0 6px;
     height: 32px;
-    background: $color-highlight-background;
+    // background: $color-highlight-background;
+    @include bg-color(color-highlight-background);
     border-radius: 6px;
     .icon-search {
       font-size: 24px;
-      color: $color-text-d;
+      // color: $color-text-d;
+      @include text-color(color-text-d);
     }
     .input-inner {
       flex: 1;
       margin: 0 5px;
       line-height: 18px;
-      background: $color-highlight-background;
-      color: $color-text;
+      // background: $color-highlight-background;
+      @include bg-color(color-highlight-background);
+      // color: $color-text;
+      @include text-color(color-text);
       font-size: $font-size-medium;
       outline: 0;
       &::placeholder {
-        color: $color-text-d;
+        // color: $color-text-d;
+        @include text-color(color-text-d);
       }
     }
     .icon-dismiss {
       font-size: 16px;
-      color: $color-text-d;
+      // color: $color-text-d;
+      @include text-color(color-text-d);
     }
   }
 </style>

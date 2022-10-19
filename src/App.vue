@@ -1,12 +1,14 @@
 <template>
-  <m-header></m-header>
-  <tab></tab>
-  <router-view :style="viewStyle" v-slot="{ Component }">
+  <div class="home">
+  <m-header class="t-home-title"></m-header>
+  <tab class="t-home-sub-title"></tab>
+  <router-view :style="viewStyle" v-slot="{ Component }" class="info">
     <keep-alive>
       <component :is="Component"/>
     </keep-alive>
   </router-view>
   <router-view
+  class="user"
     :style="viewStyle"
     name="user"
     v-slot="{ Component }"
@@ -18,6 +20,7 @@
     </transition>
   </router-view>
   <player></player>
+  </div>
 </template>
 
 <script>
@@ -45,3 +48,8 @@
     }
   }
 </script>
+<style lang="scss">
+  .info,.user{
+    @include bg-color(color-background);
+  }
+  </style>

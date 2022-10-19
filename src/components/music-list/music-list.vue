@@ -179,6 +179,7 @@
   .music-list {
     position: relative;
     height: 100%;
+    // @include bg-color(color-background);
     .back {
       position: absolute;
       top: 0;
@@ -190,6 +191,7 @@
         padding: 10px;
         font-size: $font-size-large-x;
         color: $color-theme;
+        // @include text-color(color-theme);
       }
     }
     .title {
@@ -204,6 +206,7 @@
       line-height: 40px;
       font-size: $font-size-large;
       color: $color-text;
+      // @include text-color(color-text);
     }
     .bg-image {
       position: relative;
@@ -223,6 +226,7 @@
           text-align: center;
           border: 1px solid $color-theme;
           color: $color-theme;
+          // @include text-color(color-theme);
           border-radius: 100px;
           font-size: 0;
         }
@@ -244,7 +248,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(7, 17, 27, 0.4);
+        background: rgba(14, 15, 15, 0.4);
       }
     }
     .list {
@@ -254,7 +258,8 @@
       z-index: 0;
       .song-list-wrapper {
         padding: 20px 30px;
-        background: $color-background;
+        // background: $color-background;
+        @include bg-color(color-background)
       }
     }
   }

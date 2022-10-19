@@ -61,9 +61,11 @@
       line-height: 30px;
       text-align: center;
       font-size: $font-size-medium;
-      color: $color-text-d;
+     // color: $color-text-d;
+     @include text-color(color-text-d);
       &.active {
-        color: $color-text
+      //  color: $color-text
+      @include text-color(color-text-d);
       }
     }
     .active-bar {
@@ -74,7 +76,8 @@
       height: 30px;
       transition: transform 0.3s;
       border-radius: 5px;
-      background: $color-highlight-background;
+      //background: $color-highlight-background;
+      @include bg-color(color-highlight-background)
     }
   }
 </style>

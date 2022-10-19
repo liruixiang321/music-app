@@ -178,16 +178,19 @@
         .title {
           margin-bottom: 20px;
           font-size: $font-size-medium;
-          color: $color-text-l;
+          // color: $color-text-l;
+          @include text-color(color-text-l)
         }
         .item {
           display: inline-block;
           padding: 5px 10px;
           margin: 0 20px 10px 0;
           border-radius: 6px;
-          background: $color-highlight-background;
+          // background: $color-highlight-background;
+          @include bg-color(color-highlight-background);
           font-size: $font-size-medium;
-          color: $color-text-d;
+          // color: $color-text-d;
+          @include text-color(color-text-d);
         }
       }
       .search-history {
@@ -198,7 +201,8 @@
           align-items: center;
           height: 40px;
           font-size: $font-size-medium;
-          color: $color-text-l;
+          // color: $color-text-l;
+          @include text-color(color-text-l);
           .text {
             flex: 1;
           }
@@ -206,7 +210,8 @@
             @include extend-click();
             .icon-clear {
               font-size: $font-size-medium;
-              color: $color-text-d;
+              // color: $color-text-d;
+              @include text-color(color-text-d);
             }
           }
         }

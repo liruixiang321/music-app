@@ -2,6 +2,7 @@ import MusicList from '@/components/music-list/music-list'
 import storage from 'good-storage'
 import { processSongs } from '@/service/song'
 
+// 歌手详情页组件
 export default function createDetailComponent(name, key, fetch) {
   return {
     name,
